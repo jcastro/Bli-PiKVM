@@ -33,7 +33,7 @@ sudo ./install.sh
 ```bash
 systemctl daemon-reload
 ```
-At this point PiKVM service should work as normal at the BliKVM IP Address
+At this point, PiKVM service should work as normal at the BlikVM IP address.
 
 Thanks to [kvmd-armbian](https://github.com/srepac/kvmd-armbian) by [@srepac](https://github.com/srepac).
 
@@ -43,18 +43,18 @@ Thanks to [kvmd-armbian](https://github.com/srepac/kvmd-armbian) by [@srepac](ht
 ### Create MSD Partition
 Before applying the patch, you would need to resize your installation partition on the SD card using GParted and create an additional partition for the msd. Finally, you need to add a mount entry for the new partition to **/etc/fstab** where /dev/mmcblk0p3 matches the name of the new partition you created.
 
-Run the command below and take note of the name of the /mnt partition, it should be called mmcblk0p3 if you are using default BliKVM image
+Run the command below and take note of the name of the `/mnt` partition; it should be called `mmcblk0p3` if you are using the default BliKVM image.
 ```
 lsblk
 ```
 
-Let's remove all /mnt contents
+Remove all `/mnt` contents
 ```
 cd /mnt
 sudo rm -rf *
 ```
 
-Edit /etc/fstab and add the following line, removing the existing one
+Edit `/etc/fstab` and add the following line, removing the existing one
 ```
 /dev/mmcblk0p3 /var/lib/kvmd/msd  ext4  nodev,nosuid,noexec,ro,errors=remount-ro,data=journal,X-kvmd.otgmsd-root=/var/lib/kvmd/msd,X-kvmd.otgmsd-user=kvmd  0 0
 ```
