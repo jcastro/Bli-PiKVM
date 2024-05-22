@@ -104,7 +104,7 @@ sudo nano /etc/sudoers.d/kvmd
 kvmd ALL=(ALL) NOPASSWD: ALL
 ```
 
-3. Create the following /etc/kvmd/override.d/atx.yaml file
+3. Create the following '/etc/kvmd/override.d/atx.yaml' file
 
 ```yaml
 kvmd:
